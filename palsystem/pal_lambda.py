@@ -4,6 +4,7 @@ from time import sleep
 import random
 import os
 
+##
 #要素を探してスクロールして購入する関数
 def buy_food(driver,id,key_element):
     print(len(driver.find_elements_by_class_name(key_element)))
