@@ -115,5 +115,7 @@ def lambda_handler(event, context):
     driver.get("https://shop.pal-system.co.jp/pal/OrderConfirm.do")
     sleep(1)
     driver.get("https://shop.pal-system.co.jp/pal/OrderConfirmFix.do")
+    sleep(1)
+    driver.find_element_by_name('BTN_ORDER_MAIL').click()
     print("end")
     driver.close()
