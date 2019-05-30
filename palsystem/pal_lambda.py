@@ -94,7 +94,7 @@ def lambda_handler(event, context):
     #sleepいれて購入のときの要素を読み込む
     sleep(2)
     #購入
-    buy_foods(driver,2)
+    buy_foods(driver,3)
 
     #冷凍食品のフライのページへ
     sleep(1)
