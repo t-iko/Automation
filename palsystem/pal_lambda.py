@@ -45,7 +45,7 @@ def buy_foods(driver,num):
     #購入する
     for item in choice_list:
         sleep(1)
-        buy_food(driver,item,'ipss_item_list_cart_add')
+        buy_food(driver,item,'cart-btn')
 
 #lambda関数
 def lambda_handler(event, context):
@@ -78,33 +78,39 @@ def lambda_handler(event, context):
     #ログイン(lamda環境変数の利用)
     driver.find_element_by_name('S9_').send_keys(os.environ['email'])
     driver.find_element_by_name('S11_').send_keys(os.environ['password'])
+    driver.find_element_by_class_name('btn-default').click()
 
     #お料理セットのページへ
-    driver.find_element_by_class_name('btn-default').click()
-    driver.find_element_by_class_name('navi-side').click()
+    scroll_and_click(driver,'label','お料理セット')
     sleep(2)
-    driver.find_element_by_class_name('navi-side').click()
+    #購入
+    buy_foods(driver,2)
+
+    #冷凍食品のフライのページへ
+    sleep(1)
+    driver.get("https://shop.pal-system.co.jp/pal/InesOrderContents.do")
+    scroll_and_click(driver,'label','冷凍食品')
+    scroll_and_click(driver,'label','フライ・ハンバーグ')
     #sleepいれて購入のときの要素を読み込む
     sleep(2)
     #購入
     buy_foods(driver,2)
 
-
     #冷凍食品のフライのページへ
     sleep(1)
     driver.get("https://shop.pal-system.co.jp/pal/InesOrderContents.do")
-    scroll_and_click(driver,'oAcordion','冷凍食品')
-    scroll_and_click(driver,'oGran','フライ・ハンバーグ')
+    scroll_and_click(driver,'label','魚介・加工品')
+    scroll_and_click(driver,'label','丼の具・フライ・惣菜')
     #sleepいれて購入のときの要素を読み込む
     sleep(2)
     #購入
-    buy_foods(driver,4)
+    buy_foods(driver,2)
 
     #冷凍食品の麺類のページへ
     sleep(1)
     driver.get("https://shop.pal-system.co.jp/pal/InesOrderContents.do")
-    scroll_and_click(driver,'oAcordion','冷凍食品')
-    scroll_and_click(driver,'oGran','麺類')
+    scroll_and_click(driver,'label','冷凍食品')
+    scroll_and_click(driver,'label','麺類')
     #sleepいれて購入のときの要素を読み込む
     sleep(2)
     #購入
