@@ -87,10 +87,20 @@ def lambda_handler(event, context):
     buy_foods(driver,2)
 
     #冷凍食品のフライのページへ
+    #sleep(1)
+    #driver.get("https://shop.pal-system.co.jp/pal/InesOrderContents.do")
+    #scroll_and_click(driver,'label','冷凍食品')
+    #scroll_and_click(driver,'label','フライ・ハンバーグ')
+    #sleepいれて購入のときの要素を読み込む
+    #sleep(2)
+    #購入
+    #buy_foods(driver,3)
+
+    #冷凍食品のフライのページへ
     sleep(1)
     driver.get("https://shop.pal-system.co.jp/pal/InesOrderContents.do")
-    scroll_and_click(driver,'label','冷凍食品')
-    scroll_and_click(driver,'label','フライ・ハンバーグ')
+    scroll_and_click(driver,'label','かんたん調理')
+    scroll_and_click(driver,'label','電子レンジ')
     #sleepいれて購入のときの要素を読み込む
     sleep(2)
     #購入
